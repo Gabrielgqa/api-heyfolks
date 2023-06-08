@@ -1,15 +1,21 @@
 {
-  "name": "api-message",
+  "name": "api-folks",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node src/server.js"
+    "dev": "nodemon src/server.js"
   },
   "author": "GabrielGQA <gabrielgqa@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.1.4",
     "express": "^4.18.2",
+    "knex": "^2.4.2",
+    "pg": "^8.11.0",
     "twilio": "^4.11.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
