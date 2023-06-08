@@ -1,14 +1,10 @@
 const express = require('express');
-const database = require('./config/database');
+const routes = require('./routes/index');
 require('dotenv').config();
 
 const app = express();
 
 app.use(express.json());
-app.database = database;
-
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-});
+app.use(routes);
 
 module.exports = app;
