@@ -1,0 +1,70 @@
+:root {
+    --white: #FFF;
+    --beige: #f8f6f3;
+    --green-light: #80a859;
+    --green-dark: #6a9739;
+    --blue-dark: #001524;
+    --gray-light: #a8afb4;
+    --gray-medium: #303030;
+    --gray-dark: #111111;
+  }
+
+.sec-contato {
+    width: 100%;
+    height: auto;
+    padding: 2rem 0;
+    background: var(--beige);
+    text-align: center;
+}
+
+.sec-contato h1 {
+    font-size: 2.5rem;
+}
+
+.sec-contato img {
+    margin-top: 2rem;
+}
+
+.contato-container {
+    width: 100%;
+    padding: 2rem 0;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.dados-contato {
+    width: 80%;
+    background-color: var(--white);
+    padding: 4rem 6rem;
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.content-dados {
+    padding: 2rem 4rem;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid var(--gray-light);
+    border-radius: 4px;
+}
+.content-dados i {
+    color: var(--green-dark);
+    font-size: 1.4rem;
+    padding-bottom: 1rem;
+}
+
+@media (max-width: 544px) {
+   .dados-contato {
+        padding: 0;
+   }
+   .content-dados {
+    border: none;
+   }
+}

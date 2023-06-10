@@ -12,7 +12,8 @@ class UserController {
   
   static async findAll(req, res) {
     const users = await knex.from('users').select('id', 'name', 'email', 'is_admin');
-    return res.status(200).json({ users });
+    return res.render('dashboard/users', { users })
+    //return res.status(200).json({ users });
   }
   
   static async find(req, res) {
@@ -40,6 +41,21 @@ class UserController {
 
     await knex('users').where({ id }).del();
     return res.status(200).json({ message: 'Usuário removido com sucesso' });
+  }
+
+  static async dashboard(req, res) {
+    return res.render('dashboard/index')
+    //return res.status(200).json({ users });
+  }
+
+  static async home(req, res) {
+    return res.render('home')
+    //return res.status(200).json({ users });
+  }
+
+  static async products(req, res) {
+    return res.render('products')
+    //return res.status(200).json({ users });
   }
 }
 
