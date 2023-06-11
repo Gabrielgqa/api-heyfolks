@@ -5,7 +5,7 @@
         <div class="level-item">
           <ul>
             <li>Dashboard</li>
-            <li>Usuários</li>
+            <li>Cupons</li>
           </ul>
         </div>
       </div>
@@ -14,7 +14,7 @@
   <section class="section is-main-section">
     <div class="card has-table">
         <header class="card-header">
-            <a href="/create-user" class="card-header-icon">
+            <a href="#" class="card-header-icon">
                 <button class="button is-primary">Adicionar novo +</button>
             </a>
         </header>
@@ -25,17 +25,21 @@
                 <thead>
                 <tr>
                   <th>Nome</th>
-                  <th>Email</th>
-                  <th>Administrador</th>
+                  <th>Tipo</th>
+                  <th>Valor</th>
+                  <th>Ativo</th>
+                  <th>Descrição</th>
                   <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                <% users.forEach(user => { %>
+                <% coupons.forEach(coupon => { %>
                 <tr>
-                  <td data-label="Name"><%= user.name %></td>
-                  <td data-label="Email"><%= user.email %></td>
-                  <td data-label="IsAdmin"><%= (user.is_admin) ? 'Sim' : 'Não' %></td>
+                  <td data-label="Name"><%= coupon.name %></td>
+                  <td data-label="Type"><%= coupon.type %></td>
+                  <td data-label="Value"><%= coupon.value %></td>
+                  <td data-label="Active"><%= (coupon.active) ? 'Sim' : 'Não' %></td>
+                  <td data-label="Description"><%= coupon.description %></td>
                   <td class="is-actions-cell">
                     <div class="buttons is-right">
                       <button class="button is-small is-primary" type="button">

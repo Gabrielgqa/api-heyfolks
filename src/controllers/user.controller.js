@@ -3,11 +3,21 @@ var bcrypt = require('bcryptjs');
 
 class UserController {
   static async create(req, res) {
-    const { name, email, password } = req.body;
-    const password_hash = bcrypt.hashSync(password, 10);
+    return res.render('dashboard/create-user');
+  }
 
-    await knex('users').insert({ name, email, password: password_hash });
-    return res.status(201).json({ message: 'Usuário adicionado com sucesso' });
+  static async store(req, res) {
+    const { name, email, password, is_admin } = req.body;
+    console.log(name);
+    console.log(email);
+    console.log(password);
+    console.log(is_admin);
+    const password_hash = bcrypt.hashSync(password, 10);
+    console.log(password_hash);
+
+    await knex('users').insert({ name, email, password: password_hash, is_admin });
+    const users = await knex.from('users').select('id', 'name', 'email', 'is_admin');
+    return res.render('dashboard/users', { users })
   }
   
   static async findAll(req, res) {
@@ -53,8 +63,8 @@ class UserController {
     //return res.status(200).json({ users });
   }
 
-  static async products(req, res) {
-    return res.render('products')
+  static async contact(req, res) {
+    return res.render('contact')
     //return res.status(200).json({ users });
   }
 }
