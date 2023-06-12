@@ -8,22 +8,25 @@ class UserController {
 
   static async store(req, res) {
     const { name, email, password, is_admin } = req.body;
-    console.log(name);
-    console.log(email);
-    console.log(password);
-    console.log(is_admin);
     const password_hash = bcrypt.hashSync(password, 10);
-    console.log(password_hash);
+
 
     await knex('users').insert({ name, email, password: password_hash, is_admin });
-    const users = await knex.from('users').select('id', 'name', 'email', 'is_admin');
-    return res.render('dashboard/users', { users })
+    return res.redirect('users/all/1')
   }
   
   static async findAll(req, res) {
-    const users = await knex.from('users').select('id', 'name', 'email', 'is_admin');
-    return res.render('dashboard/users', { users })
-    //return res.status(200).json({ users });
+    let { page } = req.params;
+
+    const quantity = await knex.from('users').count('id');
+    const pages = Math.ceil(parseInt(quantity[0].count) / 5);
+
+    if(page > pages)
+      page = 1
+
+    const users = await knex.from('users').select('id', 'name', 'email', 'is_admin').offset((page - 1) * 5).limit(5);
+
+    return res.render('dashboard/users', { users, page, pages });
   }
   
   static async find(req, res) {
@@ -54,18 +57,7 @@ class UserController {
   }
 
   static async dashboard(req, res) {
-    return res.render('dashboard/index')
-    //return res.status(200).json({ users });
-  }
-
-  static async home(req, res) {
-    return res.render('home')
-    //return res.status(200).json({ users });
-  }
-
-  static async contact(req, res) {
-    return res.render('contact')
-    //return res.status(200).json({ users });
+    return res.render('dashboard/index');
   }
 }
 

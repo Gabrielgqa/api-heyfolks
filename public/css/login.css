@@ -1,0 +1,67 @@
+:root {
+    --white: #FFF;
+    --beige: #f8f6f3;
+    --green-light: #80a859;
+    --green-dark: #6a9739;
+    --blue-dark: #001524;
+    --gray-light: #a8afb4;
+    --gray-medium: #303030;
+    --gray-dark: #111111;
+  }
+* {
+    font-family: 'Red Hat Display', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body, main {
+    height: 100%;
+}
+#panel-left {
+    display: flex !important;
+    align-items: center;
+}
+#panel-right {
+    display: flex !important;
+    align-items: center;
+    background-color: var(--beige);
+    
+}
+h2 {
+    color: var(--green-dark);
+    font-size: 40px;
+    font-weight: 700;
+}
+
+#panel-left .logo-container svg {
+    width: 220px;
+}
+
+
+#panel-right form input {
+    background-color: unset;
+    border: 0;
+    border-bottom: 2px solid var(--green-dark);
+    border-radius: 0;
+    font-weight: 400;
+}
+
+.btn.btn-primary {
+    border: 0 !important;
+    border-radius: 50px !important;
+    background-color: var(--green-dark) !important;
+    padding: 15px 40px !important;
+    color: #fff !important;
+    font-weight: 400 !important;
+}
+
+.links a {
+    color: var(--blue-dark);
+    
+}
+
+@media only screen and (max-width: 767px) {
+    #panel-left {
+        display: none !important;
+    }
+  }
