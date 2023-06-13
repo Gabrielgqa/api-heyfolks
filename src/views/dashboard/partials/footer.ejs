@@ -1,4 +1,19 @@
 </div>
 <script type="text/javascript" src="/js/template.min.js"></script>
+<script>
+    url_atual = window.location.pathname;
+    var a = url_atual.split("/")
+    switch(a[1]) {
+        case 'dashboard':{
+            var link = document.getElementById("linkDashboard");
+            link.classList.add("is-active");
+        }
+        case 'coupons':{
+            var link = document.getElementById("linkCoupon");
+            link.classList.add("is-active");
+        }
+           
+    }
+</script>
 </body>
 </html>

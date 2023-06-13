@@ -14,7 +14,7 @@
   <section class="section is-main-section">
     <div class="card has-table">
         <header class="card-header">
-            <a href="#" class="card-header-icon">
+            <a href="/create-coupon" class="card-header-icon">
                 <button class="button is-primary">Adicionar novo +</button>
             </a>
         </header>
@@ -42,11 +42,11 @@
                   <td data-label="Description"><%= coupon.description %></td>
                   <td class="is-actions-cell">
                     <div class="buttons is-right">
-                      <button class="button is-small is-primary" type="button">
-                        <span class="icon"><i class="mdi mdi-eye"></i></span>
+                      <button class="button is-small is-link" type="button" title="Editar">
+                        <span class="icon"><i class="fa-solid fa-pencil"></i></span>
                       </button>
-                      <button class="button is-small is-danger jb-modal" data-target="sample-modal" type="button">
-                        <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                      <button class="button is-small is-danger jb-modal" data-target="sample-modal" type="button" title="Excluir">
+                        <span class="icon"><i class="fa-solid fa-trash"></i></span>
                       </button>
                     </div>
                   </td>
@@ -60,15 +60,15 @@
                 <div class="level-left">
                   <div class="level-item">
                     <div class="buttons has-addons">
-                      <button type="button" class="button is-active">1</button>
-                      <button type="button" class="button">2</button>
-                      <button type="button" class="button">3</button>
+                      <% for (var i =1; i <=pages;  i++ ) { %>
+                        <a href="/coupons/all/<%= i %>"><button type="button" class="button"><%= i %></button></a>
+                      <% } %>
                     </div>
                   </div>
                 </div>
                 <div class="level-right">
                   <div class="level-item">
-                    <small>Page 1 of 3</small>
+                    <small>Página <%= page %> de <%= pages %></small>
                   </div>
                 </div>
               </div>

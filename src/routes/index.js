@@ -15,7 +15,9 @@ routes.delete('/users/:id', userController.remove)
 
 routes.get('/categories', categoryController.findAll)
 
-routes.get('/coupons', couponController.findAll)
+routes.get('/create-coupon', couponController.create)
+routes.post('/coupons', couponController.store)
+routes.get('/coupons/all/:page', couponController.findAll)
 
 routes.get('/dashboard', userController.dashboard)
 routes.get('/', homeController.home);
