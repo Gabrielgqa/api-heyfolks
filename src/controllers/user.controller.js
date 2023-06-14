@@ -24,7 +24,7 @@ class UserController {
     if(page > pages)
       page = 1
 
-    const users = await knex.from('users').select('id', 'name', 'email', 'is_admin').offset((page - 1) * 5).limit(5);
+    const users = await knex.from('users').select('id', 'name', 'email').offset((page - 1) * 5).limit(5);
 
     return res.render('dashboard/users/users', { users, page, pages });
   }
@@ -32,20 +32,19 @@ class UserController {
   static async find(req, res) {
     const { id } = req.params;
 
-    const user = await knex('users').where({ id }).select('id', 'name', 'email', 'is_admin');
+    const user = await knex('users').where({ id }).select('id', 'name', 'email');
     return res.status(201).json({ user });
   }
   
   static async update(req, res) {
     const { id } = req.params;
-    const { email, password, is_admin } = req.body;
+    const { email, password } = req.body;
 
-    const user = await knex('users').where({ id }).select('email', 'password', 'is_admin');
+    const user = await knex('users').where({ id }).select('email', 'password');
     const newEmail = (email) ? email : user.email;
     const newPassword = (password) ? bcrypt.hashSync(password, 10) : user.password;
-    const newIsAdmin = (is_admin) ? is_admin : user.is_admin;
 
-    await knex('users').where({ id }).update({ email: newEmail, password: newPassword, is_admin: newIsAdmin });
+    await knex('users').where({ id }).update({ email: newEmail, password: newPassword });
     return res.status(200).json({ message: 'Usuário atualizado com sucesso' });
   }
   
@@ -57,7 +56,9 @@ class UserController {
   }
 
   static async dashboard(req, res) {
-    return res.render('dashboard/index');
+    const usersQtd = await knex.from('clients').count('id');
+
+    return res.render('dashboard/index', { usersQtd: usersQtd[0].count });
   }
 }
 

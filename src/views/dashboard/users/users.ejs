@@ -1,4 +1,4 @@
-<%- include('./partials/head.ejs'); %>
+<%- include('../partials/head.ejs'); %>
   <section class="section is-title-bar">
     <div class="level">
       <div class="level-left">
@@ -26,7 +26,6 @@
                 <tr>
                   <th>Nome</th>
                   <th>Email</th>
-                  <th>Administrador</th>
                   <th></th>
                 </tr>
                 </thead>
@@ -35,7 +34,6 @@
                 <tr>
                   <td data-label="Name"><%= user.name %></td>
                   <td data-label="Email"><%= user.email %></td>
-                  <td data-label="IsAdmin"><%= (user.is_admin) ? 'Sim' : 'Não' %></td>
                   <td class="is-actions-cell">
                     <div class="buttons is-right">
                       <button class="button is-small is-link" type="button" title="Editar">
@@ -73,4 +71,4 @@
         </div>
     </div>
   </section>
-  <%- include('./partials/footer.ejs'); %>
+  <%- include('../partials/footer.ejs'); %>

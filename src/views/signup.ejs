@@ -24,24 +24,21 @@
                     <h2 class="col-12 text-center">Criar conta</h2>
                 </div>
                 <div class="row">               
-                    <form action="/users" method="POST" class="col-12 col-md-8 offset-md-2">
+                    <form action="/signup" method="POST" class="col-12 col-md-8 offset-md-2">
                         <div class="form-group">
                             <input type="text" class="form-control" name="name" id="name" placeholder="Nome" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Sobrenome" required>
+                            <input type="text" class="form-control" name="last_name" id="lastname" placeholder="Sobrenome" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="birthdate" id="birthdate" placeholder="Data Nascimento" required>
+                            <input type="text" class="form-control" name="birth_date" id="birthdate" placeholder="Data Nascimento" required>
                         </div>
                         <div class="form-group">
                             <input type="email" class="form-control" name="email" id="email" placeholder="E-mail" required>
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" name="password" id="password" placeholder="Senha" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="hidden" class="form-control" name="origin" id="origin" value="normal">
                         </div>
                         <div class="form-group text-center pt-4">
                             <input type="submit" class="btn btn-primary" value="Criar">

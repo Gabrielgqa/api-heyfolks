@@ -13,7 +13,9 @@ routes.get('/users/:id', userController.find)
 routes.put('/users/:id', userController.update)
 routes.delete('/users/:id', userController.remove)
 
-routes.get('/categories', categoryController.findAll)
+routes.get('/create-category', categoryController.create)
+routes.get('/categories/all/:page', categoryController.findAll)
+routes.post('/categories', categoryController.store)
 
 routes.get('/create-coupon', couponController.create)
 routes.post('/coupons', couponController.store)
@@ -24,5 +26,6 @@ routes.get('/', homeController.home);
 routes.get('/contato', homeController.contact);
 routes.get('/login', homeController.login);
 routes.get('/signup', homeController.signup);
+routes.post('/signup', homeController.signupCreate);
 
 module.exports = routes;

@@ -27,7 +27,7 @@ class CouponController {
 
     const coupons = await knex.from('coupons').select('name', 'type', 'value', 'description').offset((page - 1) * 5).limit(5);
 
-    return res.render('dashboard/coupons', { coupons, page, pages });
+    return res.render('dashboard/coupons/coupons', { coupons, page, pages });
   }
 }
 
