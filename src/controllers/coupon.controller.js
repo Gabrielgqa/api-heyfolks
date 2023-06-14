@@ -2,7 +2,7 @@ const knex = require('../config/database/index');
 
 class CouponController {
   static async create(req, res) {
-    return res.render('dashboard/create-coupon');
+    return res.render('dashboard/coupons/create-coupon');
   }
 
   static async store(req, res) {
@@ -17,7 +17,7 @@ class CouponController {
 
     const quantity = await knex.from('coupons').count('id');
     if(parseInt(quantity[0].count) === 0){
-      return res.render('dashboard/coupons', { coupons: [], page: 1, pages: 1 });
+      return res.render('dashboard/coupons/coupons', { coupons: [], page: 1, pages: 1 });
     }
 
     const pages = Math.ceil(parseInt(quantity[0].count) / 5);

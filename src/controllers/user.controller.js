@@ -3,7 +3,7 @@ var bcrypt = require('bcryptjs');
 
 class UserController {
   static async create(req, res) {
-    return res.render('dashboard/create-user');
+    return res.render('dashboard/users/create-user');
   }
 
   static async store(req, res) {
@@ -26,7 +26,7 @@ class UserController {
 
     const users = await knex.from('users').select('id', 'name', 'email', 'is_admin').offset((page - 1) * 5).limit(5);
 
-    return res.render('dashboard/users', { users, page, pages });
+    return res.render('dashboard/users/users', { users, page, pages });
   }
   
   static async find(req, res) {
