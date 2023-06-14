@@ -3,6 +3,7 @@ const userController = require('../controllers/user.controller');
 const categoryController = require('../controllers/category.controller');
 const couponController = require('../controllers/coupon.controller');
 const homeController = require('../controllers/home.controller');
+const clientsController = require('../controllers/client.controller');
 
 const routes = express.Router();
 
@@ -12,6 +13,8 @@ routes.get('/users/all/:page', userController.findAll)
 routes.get('/users/:id', userController.find)
 routes.put('/users/:id', userController.update)
 routes.delete('/users/:id', userController.remove)
+
+routes.get('/clients/all/:page', clientsController.findAll)
 
 routes.get('/create-category', categoryController.create)
 routes.get('/categories/all/:page', categoryController.findAll)

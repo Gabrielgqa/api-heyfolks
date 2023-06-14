@@ -1,0 +1,78 @@
+<%- include('../partials/head.ejs'); %>
+  <section class="section is-title-bar">
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <ul>
+            <li>Dashboard</li>
+            <li>Clientes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section is-main-section">
+    <div class="card has-table">
+        <div class="card-content">
+          <div class="b-table has-pagination">
+            <div class="table-wrapper has-mobile-cards">
+              <table class="table is-fullwidth is-striped is-hoverable is-fullwidth">
+                <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Sobrenome</th>
+                  <th>Data nascimento</th>
+                  <th>Email</th>
+                  <th>Ativo</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% clients.forEach(client => { %>
+                <tr>
+                  <td data-label="Name"><%= client.name %></td>
+                  <td data-label="Sobrenome"><%= client.last_name %></td>
+                  <td data-label="DataNascimento"><%= client.last_name %></td>
+                  <td data-label="Email"><%= email %></td>
+                  <td data-label="Ativo"><%= (client.active) ? 'Sim' : 'Não' %></td>
+                  <td class="is-actions-cell">
+                    <div class="buttons is-right">
+                      <% if(client.active) { %>
+                      <button class="button is-small is-link jb-modal" data-target="sample-modal" type="button" title="Excluir">
+                        <span class="icon"><i class="fa-regular fa-thumbs-up"></i>
+                      </button>
+                      <% } else { %>
+                        <button class="button is-small is-danger jb-modal" data-target="sample-modal" type="button" title="Excluir">
+                          <span class="icon"><i class="fa-regular fa-thumbs-down"></i>
+                        </button>
+                      <% } %> 
+                    </div>
+                  </td>
+                </tr>
+                <% }); %>
+                </tbody>
+              </table>
+            </div>
+            <div class="notification">
+              <div class="level">
+                <div class="level-left">
+                  <div class="level-item">
+                    <div class="buttons has-addons">
+                      <% for (var i =1; i <=pages;  i++ ) { %>
+                        <a href="/coupons/all/<%= i %>"><button type="button" class="button"><%= i %></button></a>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+                <div class="level-right">
+                  <div class="level-item">
+                    <small>Página <%= page %> de <%= pages %></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+  <%- include('../partials/footer.ejs'); %>
