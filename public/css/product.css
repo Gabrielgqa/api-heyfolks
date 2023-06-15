@@ -1,0 +1,33 @@
+:root {
+    --white: #FFF;
+    --beige: #f8f6f3;
+    --green-light: #80a859;
+    --green-dark: #6a9739;
+    --blue-dark: #001524;
+    --gray-light: #a8afb4;
+    --gray-medium: #303030;
+    --gray-dark: #111111;
+  }
+
+.sec-produtos {
+    width: 100%;
+    height: auto;
+    background: var(--beige);
+    flex-direction: row;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 4rem 10rem;
+}
+
+.content-product:first-child {
+  width: 15rem;
+  height: 300px;
+  border-right: 1px solid var(--gray-light);
+  background-color: transparent;
+}
+
+
+.content-product {
+  
+}

@@ -26,6 +26,7 @@ routes.get('/coupons/all/:page', couponController.findAll)
 
 routes.get('/dashboard', userController.dashboard)
 routes.get('/', homeController.home);
+routes.get('/produtos', homeController.products);
 routes.get('/contato', homeController.contact);
 routes.get('/login', homeController.login);
 routes.get('/signup', homeController.signup);

@@ -7,6 +7,10 @@ class UserController {
     return res.render('home');
   }
 
+  static async products(req, res) {
+    return res.render('products');
+  }
+
   static async contact(req, res) {
     return res.render('contact');
   }
